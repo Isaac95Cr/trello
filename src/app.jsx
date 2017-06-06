@@ -1,21 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
-
-const reducer = (state,action) =>{
-    if(action.type == 'INC')
-        return state+1;
-    return state;    
-}
-const store = createStore(reducer,0);
-store.subscribe(()=>{
-    console.log("store changed: " + store.getState());
-    }
-);
-store.dispatch({ type:'INC', payload: 1 });
+import { Provider } from 'react-redux';
+import store from './store';
 
 const App = () => (
-  <h1>Holi :3</h1>
+  <Provider store={store}>
+      <h1>Holi :3</h1>
+  </Provider>
 );
 
 render(<App />, document.getElementById('root'));

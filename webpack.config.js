@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [ 'bootstrap-loader', './src/app.jsx' ],
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -13,7 +14,6 @@ module.exports = {
     historyApiFallback: true,
     inline: true,
   },
-  devtool: 'source-map',
   module: {
     rules: [
       {
