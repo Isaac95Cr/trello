@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [ 'bootstrap-loader', './src/app.js' ],
@@ -7,6 +8,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  devServer: {
+    publicPath:  path.resolve(__dirname, '/'),
+    historyApiFallback: true,
+    inline: true,
+  },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -29,7 +36,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css')
+    new HtmlWebpackPlugin({
+      template: 'src/index.tpl.ejs',
+    }),
+    new ExtractTextPlugin('dist/style.css')
   ]
 
 };
