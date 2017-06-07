@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "dotenv": "^4.0.0",
+    "jsonwebtoken": "^7.4.1",
     "mongoose": "^4.10.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
