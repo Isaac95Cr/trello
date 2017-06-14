@@ -13,7 +13,9 @@ const port = process.env.DB_PORT;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use('/api',routes);
+
 
 db(process.env.DB_CONNECTION_STRING);
 
