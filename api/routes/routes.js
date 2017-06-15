@@ -1,9 +1,9 @@
 const express = require('express');
-const User = require('./../controllers/userController');
+const { User, Card, List, Board} = require('./../controllers');
 const { getJWTMiddleware, authenticateMiddleware } = require('./authMiddleware');
 const routes = express.Router();
 
-routes.get('/', getJWTMiddleware,authenticateMiddleware, (req, res) => {
+routes.get('/', getJWTMiddleware, authenticateMiddleware, (req, res) => {
     if (!req.user) {
         return res.redirect('/api/holi');
     }
@@ -19,5 +19,8 @@ routes.post('/signup', User.signup);
 routes.post('/signin', User.signin);
 routes.post('/authenticate', getJWTMiddleware, authenticateMiddleware, User.reAuthenticate);
 
+routes.get('/cards', Card.getAll);
+routes.get('/lists', List.getAll);
+routes.get('/boards', Board.getAll);
 
 module.exports = routes;
