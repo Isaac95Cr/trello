@@ -17,8 +17,6 @@ const CardSchema = mongoose.Schema({
     comments: [
         { name:String, content: String, date: String }
     ]
-
-
 });
 
 const CardModel = mongoose.model('Card', CardSchema);
