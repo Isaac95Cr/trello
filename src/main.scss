@@ -2,108 +2,194 @@ body{
     #root {
         height: 100vh;
         width: 100%;
+        background-color: #f5f8ff;
         }
     .container-fluid {
       width: 100%;
+        .navbar, .navbar-default{
+            z-index: 5;
+            height: 4.5rem;
+            border:none;
+            box-shadow: -6px 10px 40px rgba(21, 15, 24, 0.05);
+            background-color: #ffffff;
+
+        .navbar-brand{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            left: 0;
+            margin:0 auto;
+            img{
+                width: 71px;
+                height: 20px;
+            }
+        }
+        .navbar-toggle {
+            z-index:3;
+        }
+        .navbar-collapse.collapse {
+            background: #f5f8ff;
+            .navbar-form.navbar-left{
+                input{
+                    border-radius: 5px 0 0 5px;
+                    border: 1px solid #c8c8c8;
+                    background-color: #ffffff;
+                }
+                button{
+                    border-radius: 0 5px 5px 0;
+                    border: 1px solid #c8c8c8;
+                    background-color: #4e88ff;
+                    .icon-color{
+                        
+                    }
+                    img{
+                        fill: white;
+                        height: 1.5rem;
+                    }
+                }
+                
+            }
+            .nav.navbar-nav.navbar-left, .nav.navbar-nav.navbar-right{
+                 li{ 
+                    &:first-child{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    text-align: center;
+                    a{
+                        img {
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        .navbar-collapse.collapsing, .navbar-collapse.collapse.in {
+            background: #f5f8ff;
+            .nav.navbar-nav.navbar-left, .nav.navbar-nav.navbar-right{
+                li{
+                    &:first-child{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    text-align: center;
+                    a{
+                        img {
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+
+}       
+    
+    
     }
 
 }
-
-.home__background{
-    margin: 0 -15px;
-    height: 100vh;
-    background: url('./img/Home.png') no-repeat;
-    background-size: 100% 100vh;
-    display: block;
+@media (min-width: 768px){
+    .navbar {
+        border-radius: none;    
+    }
 }
-.login{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-    background-color: white;
-    .login__wrapper{
-        
-        padding: 0 3.75rem;
-        .login__logo{
-            padding: 8.625rem 0;
-            height: 2.5rem;
-            width: 9rem;
+
+@media (min-width: 768px){
+    body .container-fluid .navbar.navbar-default .navbar-collapse.collapse.in,
+    body .container-fluid .navbar.navbar-default .navbar-collapse.collapse
+    {
+            .navbar-form{
+                width: 30%;
+            }
         }
-        .login__form{
-            margin-bottom: 3.75rem;
-            .username{
-                padding-left: 35px;
-                font-size: 2.8125rem;
-                background: linear-gradient(to bottom, rgba(255,255,255,0.5),  rgba(255,255,255,0.5)),  url('./img/username.svg') white no-repeat;
-                background-size: 2rem;
-                background-position: 0.7rem;
+
+}
+
+main{
+    .board{
+        background: #f5f8ff;
+        .board__header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .board__nav{
+                text-align: right;
             }
-            .password{
-                padding-left: 35px;
-                font-size: 2.8125rem;
-                background: linear-gradient(to bottom, rgba(255,255,255,0.5),  rgba(255,255,255,0.5)),  url('./img/password.svg') white no-repeat;
-                background-size: 2rem;
-                background-position: 0.7rem;
-            }
+        }
+    }
+    .board__content{
+        position: absolute;
+        overflow: scroll;
+        width: 97.5%;
+        display: flex;
+        flex-flow: row;
+        background: #f5f8ff;
+        .list{
             
-            input{
-                display: block;
-                width: 100%;
-                margin-bottom: 1.875rem;
-               
-                border-radius: 8px;
-                border: 1px solid #dadada;
-                background-color: #ffffff;
-            }
+            min-width: 300px;
+            max-height: 75vh;
+            box-shadow: 0 0 18px rgba(10, 23, 48, 0.05);
+            background-color: #ffffff;
+            padding: 1.875rem 1.375rem;
+            margin-right: 1.25rem;
+            .list__title{
 
-            button{
-                color: white;
-                box-shadow: -8px 13px 21px rgba(10, 51, 137, 0.27);
-                border-radius: 8px;
-                background-color: #4e88ff;
-                width: 100%;
             }
-        }
-        .login__or{
-            text-align: center;
-            margin-bottom: 3.75rem;
-           .hr-text {
-                line-height: 1em;
-                position: relative;
-                outline: 0;
-                border: 0;
-                color: black;
-                text-align: center;
-                height: 1.5em;
-                opacity: .5;
-                &:before {
-                    content: '';
-                    // use the linear-gradient for the fading effect
-                    // use a solid background color for a solid bar
-                    background:  #dadada;
-                    position: absolute;
-                    left: 0;
-                    top: 50%;
-                    width: 100%;
-                    height: 1px;
-                }
-                &:after {
-                    content: attr(data-content);
-                    position: relative;
-                    display: inline-block;
-                    color: black;
-
-                    padding: 0 .5em;
-                    line-height: 1.5em;
-                    // this is really the only tricky part, you need to specify the background color of the container element...
-                    color: black;
-                    background-color: #fcfcfa;
+            .list__content{
+                
+                display: flex;
+                flex-flow: column;
+                overflow-y: scroll;
+                max-height: 51vh;
+                .card{
+                    border: 1px solid #e6e6e6;
+                    padding: 1.875rem 1.25rem;
+                    background-color: #ffffff;
+                    .card__title{
+                        padding: 1.25rem 2.5rem 0 1.25rem ;
+                    }
+                    .card__content{
+                        padding: 1.25rem 1.25rem;
+                        display: flex;
+                        justify-content: space-between;
+                    }
                 }
             }
-        }
-        .login__create{
-            text-align: center;
         }
     }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #e6e6e6;
+  border: 0px none #ffffff;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #e6e6e6;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
