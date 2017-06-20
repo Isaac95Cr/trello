@@ -7,7 +7,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-import login from './components/login/login.jsx';
+import Login from './components/login/login.jsx';
 import signup from './components/signup/signup.jsx';
 import home from './components/home/home.jsx';
 import board from './components/board/board.jsx';
@@ -19,7 +19,7 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <div className="">
-        <Route exact path="/" component={login} />
+        <Route exact path="/" component={Login} />
         <Route path="/home" component={home} />
         <Route path="/signup" component={signup} />
         <Route path="/board" component={board} />

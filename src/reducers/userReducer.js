@@ -1,19 +1,23 @@
 import { LOGIN , LOGOUT, SIGNIN} from '../actions/userActions.js';
 
 const initialState = {
+    loggedIn: false,
+    shouldRedirect: false,
+    errorMessage: null
 }
 
 const userReducer = (state = initialState, action) => {
 
     switch(action.type){
         case LOGIN:
-        console.log("login");
+        return state;
         
         case LOGOUT:
-        console.log("logout");
+        return state;
         
         case SIGNIN:
-        console.log("signin");
+        
+        return state;
 
         default:
         return state

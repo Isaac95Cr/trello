@@ -1,25 +1,30 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Link } from 'react-router-dom'
-import './login.scss';
-import logo from './img/Trello-logo.svg'
-import user from './img/username.svg'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const login = () => (
+import { signin as log } from '../../actions/userActions.js';
+import logoSvg from './img/Trello-logo.svg'
+import './login.scss';
+
+let Login = ({ dispatch }) => (
   <div className="container-fluid">
     <div className="row">
       <div className="col-md-4">
         <div className="login">
           <div className="login__wrapper">
             <div className="login__logo">
-              <img src={logo} />
+              <img src={logoSvg} />
             </div>
             <form className="login__form">
               <input type="text" className="login__input username" />
               <input type="password" className="login__input password" />
-              <Link to="/home">
-                <button className="btn btn-default" >Log in</button>
-              </Link>
+              <button className="btn btn-default" onClick={
+                (e) => {
+                  e.preventDefault()
+                  dispatch(log("example0@gmail.com","lala"));
+                }
+              } >Log in</button>
             </form>
             <div className="login__or">
               <hr className="hr-text" data-content="OR" />
@@ -37,4 +42,6 @@ const login = () => (
   </div>
 );
 
-export default login;
+Login = connect()(Login);
+
+export default Login;
