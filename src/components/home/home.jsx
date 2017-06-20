@@ -10,8 +10,10 @@ import important from './img/important-Icon.svg';
 import bell from './img/bell-Icon.svg';
 import search from './img/searchIcon.svg';
 
+import { connect } from 'react-redux';
 
-const home = () => (
+let home = (props) => (
+
     <div className="container-fluid">
       <header>
         <div className="row">
@@ -77,7 +79,7 @@ const home = () => (
                 <div className="col-md-12">
                   <div className="boards__list__header">
                     <div className="boards__list__title">
-                      <h2>Personal Boards</h2>
+                      <h2>{JSON.stringify(props.authenticated )+ ""}</h2>
                     </div>
                   </div>
                 </div>
@@ -138,5 +140,11 @@ const home = () => (
 
     </div>
 );
+
+function mapStateToProps(state) {
+    return { authenticated: state.user.user };
+  }
+
+  home =  connect(mapStateToProps)(home);
 
 export default home;

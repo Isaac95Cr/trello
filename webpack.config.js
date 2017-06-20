@@ -3,7 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/app.jsx', 'bootstrap-loader'],
+  entry: ['./src/index.jsx', 'bootstrap-loader'],
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -17,39 +17,38 @@ module.exports = {
   module: {
     rules: [
       {
-       test: /\.scss$/,
-       use: [
-         {
-           loader: 'style-loader' // creates style nodes from JS strings
-         },
-         {
-           loader: 'css-loader' // translates CSS into CommonJS
-         },
-         {
-           loader: 'sass-loader', // compiles Sass to CSS
-           options: {
-             includePaths: [path.join(__dirname, '/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/')]
-           }
-         }
-       ]
-     },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader"
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader' // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader' // translates CSS into CommonJS
+          },
+          {
+            loader: 'sass-loader', // compiles Sass to CSS
+            options: {
+              includePaths: [path.join(__dirname, '/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/')]
+            }
+          }
+        ]
       },
       {
-        test: /\.jsx$/,
+        test: /\.(jsx?|js?)$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loaders: [
+          {
+            loader: 'babel-loader'
+          }
+        ]
       },
       {
         test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
         loader: 'imports-loader?jQuery=jquery'
       },
       {
-       test: /\.(eot|ttf|svg|gif|png|jpg)$/,
-       loader: "file-loader"
+        test: /\.(eot|ttf|svg|gif|png|jpg)$/,
+        loader: "file-loader"
       }
     ]
   },

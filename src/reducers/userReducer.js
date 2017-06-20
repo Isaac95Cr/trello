@@ -1,26 +1,28 @@
-import { LOGIN , LOGOUT, SIGNIN} from '../actions/userActions.js';
+import { REAUTH, LOGOUT, SIGNIN, ERROR } from '../actions/userActions.js';
 
 const initialState = {
-    loggedIn: false,
-    shouldRedirect: false,
-    errorMessage: null
+    user: {},
+    authenticated: false,
+    error: ''
 }
 
 const userReducer = (state = initialState, action) => {
 
-    switch(action.type){
-        case LOGIN:
-        return state;
-        
-        case LOGOUT:
-        return state;
-        
+    switch (action.type) {
         case SIGNIN:
-        
-        return state;
+            return { ...state, user: action.payload.user, error: '', authenticated: true };
+
+        case LOGOUT:
+            return { ...state, error: '', authenticated: false, user:{}};
+
+        case REAUTH:
+            return { ...state, error: '', authenticated: true };
+
+        case ERROR:
+            return { ...state, authenticated: false, error: action.payload, user:{} }
 
         default:
-        return state
+            return state
     }
 }
 

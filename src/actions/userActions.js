@@ -2,24 +2,37 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';  
 const cookies = new Cookies();
 
-export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const SIGNIN = 'SIGNIN'
+export const ERROR = 'ERROR'
+export const REAUTH = 'REAUTH'
+
 const apiurl = "http://localhost:3000/"
 const appurl = "http://localhost:8080/"
 
 export function signin(email, password) {
 
     return function (dispatch) {
-        axios.post(`${apiurl}api/signin`, { email, password }).then(response => {
-            dispatch({ type: SIGNIN, payload: response.data });
+        return axios.post(`${apiurl}api/signin`, { email, password })
+        /*.then(response => {
+            
             cookies.set('token', response.data.token, { path: '/' });
             window.location.href = `${appurl}home`;
         }).catch(err => {
-            dispatch({ type: "Error", payload: err });
-        });
+            dispatch({ type: ERROR, payload: err.response.data.message });
+        });*/
     }
 }
+
+export function setSignin(data){
+    return { type: SIGNIN, payload: data };
+}
+
+export function setError(data){
+    return { type: ERROR, payload: data };
+}
+
+
 export function logout() {
     return function (dispatch) {
         dispatch({ type: LOGOUT });
@@ -28,7 +41,7 @@ export function logout() {
     }
 }
 
-export function protectedTest() {
+export function reauth() {
     return function (dispatch) {
         axios.get(`${apiurl}api/authenticate`, 
         {
@@ -36,12 +49,12 @@ export function protectedTest() {
         })
             .then(response => {
                 dispatch({
-                    type: PROTECTED_TEST,
-                    payload: response.data.content
+                    type: REAUTH,
+                    payload: response.data
                 });
             })
             .catch((error) => {
-                errorHandler(dispatch, error.response, AUTH_ERROR)
+                 dispatch({ type: ERROR, payload: err.response.data.message });
             });
     }
 }

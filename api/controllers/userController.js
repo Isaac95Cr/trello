@@ -18,7 +18,7 @@ const signup = (req, res) => {
     user.save()
         .then(data => {
             const token = generateToken(user);
-            sendJsonResponse(res, { user, token }, '200');
+            sendJsonResponse(res, { user, token }, '201');
         })
         .catch(err => sendErrorResponse(res, err, '500'));
 };
@@ -41,7 +41,7 @@ const signin = (req, res) => {
                     });
                 } else {
                     const token = generateToken(user);
-                    sendJsonResponse(res, { user, token }, '201');
+                    sendJsonResponse(res, { user, token }, '200');
                 }
             }
 
