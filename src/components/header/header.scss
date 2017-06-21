@@ -1,12 +1,4 @@
-body{
-    #root {
-        height: 100vh;
-        width: 100%;
-        background-color: #f5f8ff;
-        }
-    .container-fluid {
-      width: 100%;
-        .navbar, .navbar-default{
+.navbar, .navbar-default{
             z-index: 5;
             height: 4.5rem;
             border:none;
@@ -84,10 +76,7 @@ body{
 
 }       
     
-    
-    }
 
-}
 @media (min-width: 768px){
     .navbar {
         border-radius: none;    
@@ -103,81 +92,4 @@ body{
             }
         }
 
-}
-
-main{
-    .board{
-        margin: 0px 1.875rem;
-        background: #f5f8ff;
-        .board__header{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .board__nav{
-                text-align: right;
-            }
-        }
-    }
-    .board__content{
-        position: absolute;
-        overflow: scroll;
-        width: 97.5%;
-        display: flex;
-        flex-flow: row;
-        background: #f5f8ff;
-        .list{
-            
-            min-width: 300px;
-            max-height: 75vh;
-            box-shadow: 0 0 18px rgba(10, 23, 48, 0.05);
-            background-color: #ffffff;
-            padding: 1.875rem 1.375rem;
-            margin-right: 1.25rem;
-            .list__title{
-
-            }
-            .list__content{
-                
-                display: flex;
-                flex-flow: column;
-                overflow-y: scroll;
-                max-height: 51vh;
-                
-            }
-        }
-    }
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-button {
-  width: 0px;
-  height: 0px;
-}
-::-webkit-scrollbar-thumb {
-  background: #e1e1e1;
-  border: 0px none #ffffff;
-  border-radius: 0px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
-}
-::-webkit-scrollbar-thumb:active {
-  background: #000000;
-}
-::-webkit-scrollbar-track {
-  background: #e6e6e6;
-  border: 0px none #ffffff;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-track:hover {
-  background: #666666;
-}
-::-webkit-scrollbar-track:active {
-  background: #e6e6e6;
-}
-::-webkit-scrollbar-corner {
-  background: transparent;
 }

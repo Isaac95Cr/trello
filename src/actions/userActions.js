@@ -54,12 +54,5 @@ export function reauth() {
 export function signup(name, email, password) {
     return function (dispatch) {
         return axios.post(`${apiurl}api/signup`, { name, email, password })
-        /*.then(response => {
-            dispatch({ type: SIGNIN, payload: response.data });
-            cookies.set('token', response.data.token, { path: '/' });
-            window.location.href = `${appurl}home`;
-        }).catch(err => {
-            dispatch({ type: "Error", payload: err });
-        });*/
     }
 }

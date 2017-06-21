@@ -1,0 +1,14 @@
+.card{
+    border: 1px solid #e6e6e6;
+    padding: 1.875rem 1.25rem;
+    margin-bottom: 1.25rem; 
+    background-color: #ffffff;
+    .card__title{
+        padding: 1.25rem 2.5rem 0 1.25rem ;
+    }
+    .card__content{
+        padding: 1.25rem 1.25rem;
+        display: flex;
+        justify-content: space-between;
+    }
+}

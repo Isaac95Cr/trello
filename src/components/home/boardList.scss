@@ -1,0 +1,13 @@
+.boards__list{
+        margin: 0px 1.875rem;
+        background: #f5f8ff;
+        .boards__list__header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .boards__list__content{
+        background: #f5f8ff;
+        
+    }

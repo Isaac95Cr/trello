@@ -1,0 +1,18 @@
+.board__item{
+    background-color: #4e88ff;
+    border-radius: 8px;
+    box-shadow: -6px 10px 40px rgba(21, 15, 24, 0.20);
+    padding: 1.875rem 1.375rem;
+    margin-top: 1.25rem;
+    &:hover{
+        cursor: pointer;
+        background-color: #0175b8;
+    }
+    .board__item__title{
+        color: white;
+        text-align: center;
+
+    }
+    .board__item__content{
+    }
+}
