@@ -20,7 +20,7 @@ const userReducer = (state = initialState, action) => {
 
         case ERROR:
             return { ...state, authenticated: false, error: action.payload, user:{} }
-
+            
         default:
             return state
     }

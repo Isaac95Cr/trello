@@ -8,10 +8,18 @@ import Login from './components/login/login.jsx';
 import Signup from './components/signup/signup.jsx';
 import Home from './components/home/home.jsx';
 import Board from './components/board/board.jsx';
-
+import setHeader from './utils/setHeaders.js';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+import { setSignin } from './actions/userActions.js';
+import jwt from 'jsonwebtoken';
 import './main.scss';
 
-import { signin as x } from './actions/userActions.js';
+const token = cookies.get('token');
+if(token){
+    setHeader(token);
+    store.dispatch(setSignin(jwt.decode(token)));
+}
 
 const Index = () => (
     <Provider store={store}>
@@ -19,7 +27,7 @@ const Index = () => (
             <div className="">
                 <Route exact path="/" component={Login} />
                 <Route path="/signup" component={Signup} />
-                <Route path="/board" component={Board} />
+                <Route path="/board" component={RequireAuth(Board)} />
                 <Route path="/home" component={RequireAuth(Home)} />
             </div>
         </BrowserRouter>

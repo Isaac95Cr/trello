@@ -52,11 +52,16 @@ module.exports = {
       }
     ]
   },
+  node:{
+    net: 'empty',
+    dns:'empty'
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.tpl.ejs',
     }),
     //new ExtractTextPlugin('dist/style.css')
   ]
+
 
 };

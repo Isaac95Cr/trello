@@ -33,15 +33,14 @@ body{
         .login__form{
             margin-bottom: 3.75rem;
             .username{
+                height: 4rem;
                 padding-left: 35px;
-                font-size: 2.8125rem;
-                background: linear-gradient(to bottom, rgba(255,255,255,0.5),  rgba(255,255,255,0.5)),  url('./img/username.svg') white no-repeat;
                 background-size: 2rem;
                 background-position: 0.7rem;
             }
             .password{
                 padding-left: 35px;
-                font-size: 2.8125rem;
+                height: 4rem;
                 background: linear-gradient(to bottom, rgba(255,255,255,0.5),  rgba(255,255,255,0.5)),  url('./img/password.svg') white no-repeat;
                 background-size: 2rem;
                 background-position: 0.7rem;

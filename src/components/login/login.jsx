@@ -3,10 +3,12 @@ import { render } from 'react-dom';
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signin, setSignin, setError } from '../../actions/userActions.js';
-import logoSvg from './img/Trello-logo.svg'
-import './login.scss';
+import jwt from 'jsonwebtoken';
+import setHeader from '../../utils/setHeaders.js';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
+import logoSvg from './img/Trello-logo.svg'
+import './login.scss';
 
 class Login extends React.Component {
   constructor(props) {
@@ -28,6 +30,7 @@ class Login extends React.Component {
     signin(this.state.username, this.state.password)
       .then(response => {
         cookies.set('token', response.data.token, { path: '/' });
+        setHeader(response.data.token);
         setSignin(response.data);
         history.push('/home');
       })

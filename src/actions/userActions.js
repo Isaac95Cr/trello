@@ -14,13 +14,6 @@ export function signin(email, password) {
 
     return function (dispatch) {
         return axios.post(`${apiurl}api/signin`, { email, password })
-        /*.then(response => {
-            
-            cookies.set('token', response.data.token, { path: '/' });
-            window.location.href = `${appurl}home`;
-        }).catch(err => {
-            dispatch({ type: ERROR, payload: err.response.data.message });
-        });*/
     }
 }
 
@@ -37,7 +30,6 @@ export function logout() {
     return function (dispatch) {
         dispatch({ type: LOGOUT });
         cookies.remove('token', { path: '/' });
-        window.location.href =  `${appurl}login`;
     }
 }
 
@@ -61,12 +53,13 @@ export function reauth() {
 
 export function signup(name, email, password) {
     return function (dispatch) {
-        axios.post(`${apiurl}api/signup`, { name, email, password }).then(response => {
+        return axios.post(`${apiurl}api/signup`, { name, email, password })
+        /*.then(response => {
             dispatch({ type: SIGNIN, payload: response.data });
             cookies.set('token', response.data.token, { path: '/' });
             window.location.href = `${appurl}home`;
         }).catch(err => {
             dispatch({ type: "Error", payload: err });
-        });
+        });*/
     }
 }
