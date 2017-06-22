@@ -1,0 +1,18 @@
+.list{
+    max-width: 300px;
+    min-width: 255px;
+    max-height: 75vh;
+    box-shadow: 0 0 18px rgba(10, 23, 48, 0.05);
+    background-color: #ffffff;
+    padding: 1.875rem 1.375rem;
+    margin-right: 1.25rem;
+    .list__title{
+
+    }
+    .list__content{  
+        display: flex;
+        flex-flow: column;
+        overflow-y: scroll;
+        max-height: 51vh;
+    }
+}

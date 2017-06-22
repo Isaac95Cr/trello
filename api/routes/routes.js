@@ -15,6 +15,8 @@ routes.get('/holi', (req, res) => {
 });
 
 routes.get('/users', User.getAll);
+routes.get('/user/boards/:id', User.getBoards);
+routes.post('/user/boards/:id', User.setBoards);
 routes.post('/signup', User.signup);
 routes.post('/signin', User.signin);
 routes.post('/authenticate', getJWTMiddleware, authenticateMiddleware, User.reAuthenticate);
@@ -25,12 +27,13 @@ routes.put('/cards/:id', Card.update);
 routes.delete('/cards/:id', Card.del);
 
 routes.get('/lists', List.getAll);
+routes.get('/lists/:id', List.getFromBoard);
 routes.post('/lists', List.add);
 routes.put('/lists/:id', List.update);
 routes.delete('/lists/:id', List.del);
 
-routes.get('/boards', Board.getAll);
-routes.get('/boards/:id', Board.getList);
+//routes.get('/boards', Board.getAll);
+routes.get('/boards/:id', Board.get);
 routes.post('/boards', Board.add);
 routes.put('/boards/:id', Board.update);
 routes.delete('/boards/:id', Board.del);

@@ -7,7 +7,7 @@ import RequireAuth from './components/authentication/authentication.jsx';
 import Login from './components/login/login.jsx';
 import Signup from './components/signup/signup.jsx';
 import Home from './components/home/home.jsx';
-import Board from './components/board/board.jsx';
+import Board from './components/board/boardView.jsx';
 import setHeader from './utils/setHeaders.js';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();

@@ -39,6 +39,13 @@ const del = (req, res) => {
         ).catch(err => sendErrorResponse(res, err, '500'));
 };
 
+const get = (req, res) => {
+    const { params, body } = req;
+    Board.findOne({_id:params.id })
+        .then(data => sendJsonResponse(res, data, '200'))
+        .catch(err => sendErrorResponse(res, err, '500'))
+};
+
 const getList = (req, res) => {
     const { params, body } = req;
     Board.find(params.id)
@@ -55,14 +62,12 @@ const getList = (req, res) => {
         .catch(err => sendErrorResponse(res, err, '500'))
 };
 
-
-
 const Boards = {
     getAll,
     add,
     update,
     del,
-    getList
+    get
 };
 
 module.exports = Boards;

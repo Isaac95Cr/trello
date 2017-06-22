@@ -9,14 +9,15 @@ const ListSchema = mongoose.Schema({
         require: true
     },
     boardId: {
-        type: Schema.ObjectId, 
-        ref: 'Board',
+        /*type: Schema.ObjectId, 
+        ref: 'Board',*/
+        type: String,
         require: true
     },
     position: {
         type: String,
     },
-    cards: [{ type: Schema.ObjectId, ref: 'Card'}]
+    cards: [{ type: Schema.ObjectId, ref: 'Card' }]
 });
 
 const ListModel = mongoose.model('List', ListSchema);

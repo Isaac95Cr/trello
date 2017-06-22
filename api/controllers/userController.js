@@ -60,12 +60,38 @@ const reAuthenticate = (req, res) => {
     sendJsonResponse(res, { user, token }, '201');
 }
 
+const getBoards = (req, res) => {
+    const { params, body } = req;
+    User.findById(params.id)
+        .populate({
+            path: 'boards',
+            model: 'Board',
+        })
+        .exec()
+        .then(data => sendJsonResponse(res, data.boards, '200'))
+        .catch(err => sendErrorResponse(res, err, '500'))
+};
+
+const setBoards = (req, res) => {
+    const { params, body } = req;
+    User.findByIdAndUpdate(params.id,
+        { "$push": { "boards": body.board } }
+
+    )
+        .exec()
+        .then(data => sendJsonResponse(res, data, '250'))
+        .catch(err => sendErrorResponse(res, err, '500'))
+};
+
+
 
 const Users = {
     getAll,
     signup,
     signin,
-    reAuthenticate
+    reAuthenticate,
+    getBoards,
+    setBoards
 };
 
 module.exports = Users;

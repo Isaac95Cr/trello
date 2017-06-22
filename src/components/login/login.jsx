@@ -29,14 +29,12 @@ class Login extends React.Component {
 
     signin(this.state.username, this.state.password)
       .then(response => {
-        cookies.set('token', response.data.token, { path: '/' });
-        setHeader(response.data.token);
-        setSignin(response.data);
-        history.push('/home');
-      })
-      .catch(err => {
-        this.setState({ error: err.response.data.message });
-        setError(err.response.data.message);
+        if (response.error) {
+          this.setState({ error: response.error });
+        }
+        else {
+          history.push('/home');
+        }
       });
   };
 

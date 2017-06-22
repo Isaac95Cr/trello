@@ -1,6 +1,6 @@
 .boards__list{
         margin: 0px 1.875rem;
-        background: #f5f8ff;
+        background: white;
         .boards__list__header{
             display: flex;
             justify-content: space-between;
@@ -8,6 +8,37 @@
         }
     }
     .boards__list__content{
-        background: #f5f8ff;
+        background: white;
         
     }
+
+    .board__add__item{
+    background-color: #f5f8ff;
+    border-radius: 8px;
+    box-shadow: -6px 10px 40px rgba(21, 15, 24, 0.20);
+    padding: 1.875rem 1.375rem;
+    margin-top: 1.25rem;
+    .board__add__item__title{
+        color: white;
+        text-align: center;
+
+    }
+    .board__add__item__content{
+        .input-group{
+            input{
+                font-size: 30px;
+            }
+            button{
+                border-radius: 0 5px 5px 0;
+                border: 1px solid #c8c8c8;
+                background-color: #4e88ff;
+                .icon-color{
+                    
+                }
+                img{
+                    height: 1.5rem;
+                }
+            }
+        }
+    }
+}
