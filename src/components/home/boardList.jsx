@@ -3,15 +3,22 @@ import { render } from 'react-dom';
 import './boardList.scss';
 import BoardItem from './boardItem.jsx';
 import addSvg from './img/add-Icon.svg';
+import Dragula from 'react-dragula';
 
 const renderItems = (items) => {
     return items.map((item, index) => {
         return <BoardItem key={index} id={item._id} title={item.name} />
     })
 }
-
+const dragulaDecorator = (componentBackingInstance)=> {
+    if (componentBackingInstance) {
+      let options = { };
+      Dragula([componentBackingInstance], options);
+    }
+  };
 const BoardList = (props) => {
     const { onAdd, onChange, name} = props;
+    
     return (
         <div className="boards__list">
             <div className="row">
@@ -24,7 +31,7 @@ const BoardList = (props) => {
                 </div>
                 <div className="col-md-12">
                     <div className="boards__list__content">
-                        <div className="row">
+                        <div className="row" ref={dragulaDecorator}>
                             {renderItems(props.boards)}
                             <div className="col-md-3 col-sm-6">
                                 <div className="board__add__item">
@@ -51,6 +58,7 @@ const BoardList = (props) => {
 
 
     )
+    
 }
 
 export default BoardList;

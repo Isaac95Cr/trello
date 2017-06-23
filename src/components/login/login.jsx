@@ -50,8 +50,8 @@ class Login extends React.Component {
                   <img src={logoSvg} />
                 </div>
                 <form className="login__form">
-                  <input type="text" name="username" onChange={onChange} className="login__input username" />
-                  <input type="password" name="password" onChange={onChange} className="login__input password" />
+                  <input type="text" name="username" onChange={onChange} className="login__input username" placeholder="Email" />
+                  <input type="password" name="password" onChange={onChange} className="login__input password" placeholder="Password" />
                   <button className="btn btn-default" onClick={onLogIn}>Log in</button>
                 </form>
                 <div className="login__or">

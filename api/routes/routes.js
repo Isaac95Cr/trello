@@ -33,7 +33,7 @@ routes.post('/lists', List.add);
 routes.put('/lists/:id', List.update);
 routes.delete('/lists/:id', List.del);
 
-//routes.get('/boards', Board.getAll);
+routes.get('/boards', Board.getAll);
 routes.get('/boards/:id', Board.get);
 routes.post('/boards', Board.add);
 routes.put('/boards/:id', Board.update);

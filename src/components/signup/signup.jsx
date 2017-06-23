@@ -29,7 +29,6 @@ class SingUp extends React.Component {
     const { history, signup, setSignin, setError } = this.props;
     this.setState({ error: "" });
     e.preventDefault();
-    console.log(this.state.name,this.state.username, this.state.password);
     signup(this.state.name,this.state.username, this.state.password)
       .then(response => {
         cookies.set('token', response.data.token, { path: '/' });
@@ -38,6 +37,7 @@ class SingUp extends React.Component {
         history.push('/home');
       })
       .catch(err => {
+        console.log(err);
         this.setState({ error: err.response.data.message });
         setError(err.response.data.message);
       });
@@ -55,7 +55,7 @@ class SingUp extends React.Component {
                   <img src={logoSvg} />
                 </div>
                 <form className="login__form">
-                  <input type="text" name="name" onChange={onChange} className="login__input name" placeholder="Name" />
+                  <input type="text" name="name" onChange={onChange} className="login__input username" placeholder="Name" />
                   <input type="text" name="username" onChange={onChange} className="login__input username" placeholder="Email" />
                   <input type="password" name="password" onChange={onChange} className="login__input password" placeholder="Password" />
                   <button className="btn btn-default" onClick={onSignUp}>Log in</button>
