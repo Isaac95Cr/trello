@@ -10,9 +10,12 @@ const CardSchema = mongoose.Schema({
     description: {
         type: String
     },
+    fecha: {
+        type: String
+    },
     listId: {
-        type: Schema.ObjectId,
-        ref: 'List'
+        type: String,
+        require: true
     },
     comments: [
         { name:String, content: String, date: String }

@@ -31,7 +31,6 @@ class Home extends React.Component {
     addBoard(this.state.name)
       .then(response => {
         updateUserBoards(user._id,response._id)
-          .then(response => console.log(response));
         this.setState({ name: '' });
       })
   }
@@ -45,7 +44,7 @@ class Home extends React.Component {
     const { user, boards } = this.props;
     return (
       <div className="container-fluid">
-        <Header user={user} />
+        <Header title={"Home"} user={user} />
         <main>
           <div className="row">
             <div className="col-md-12">

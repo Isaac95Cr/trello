@@ -2,6 +2,7 @@ import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import { setBoards as userSetBoards ,updateUserBoards } from './userActions.js';
 
+export const SETLISTSIDS = 'SETLISTSIDS'
 export const SETLIST = 'SETLIST'
 export const ADDLIST = 'ADDLIST'
 export const DELLIST = 'DELLIST'
@@ -16,6 +17,7 @@ export function getLists(id) {
         return axios.get(`${apiurl}api/lists/${id}`)
             .then(response => {
                 dispatch(setList(response.data));
+                dispatch(setListIds());
                 return response;
             })
             .catch(err => {
@@ -29,6 +31,7 @@ export function addList(name,boardId) {
         return axios.post(`${apiurl}api/lists/`, { name ,boardId})
             .then(response => { 
                 dispatch(setnewList(response.data));
+                dispatch(setListIds());
                 return response.data;
             })
             .catch(err => {
@@ -39,6 +42,9 @@ export function addList(name,boardId) {
 
 export function setList(data) {
     return { type: SETLIST, payload: data };
+}
+export function setListIds() {
+    return { type: SETLISTSIDS };
 }
 
 export function setnewList(data) {

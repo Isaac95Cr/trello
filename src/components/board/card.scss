@@ -4,11 +4,21 @@
     margin-bottom: 1.25rem; 
     background-color: #ffffff;
     .card__title{
+        word-wrap: break-word;
         padding: 1.25rem 2.5rem 0 1.25rem ;
     }
     .card__content{
+        word-wrap: break-word;
         padding: 1.25rem 1.25rem;
         display: flex;
         justify-content: space-between;
+        .card__members{
+            width: 3rem;
+            background: #4e88ff;
+            p{
+                text-align: center;
+                margin: 5px 0;
+            }
+        }
     }
 }

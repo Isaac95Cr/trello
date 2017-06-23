@@ -5,13 +5,13 @@ import './card.scss'
 const Card = (props) => (
 
     <div className="card">
-        <div className="card__title">card title</div>
+        <div className="card__title"><p>{props.title}</p></div>
         <div className="card__content">
             <div className="card__date">
-                jun 25
+                {props.fecha}
             </div>
             <div className="card__members">
-                Members
+                <p>{props.userI}</p>
             </div>
         </div>
     </div>

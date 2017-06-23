@@ -21,10 +21,11 @@ routes.post('/signup', User.signup);
 routes.post('/signin', User.signin);
 routes.post('/authenticate', getJWTMiddleware, authenticateMiddleware, User.reAuthenticate);
 
-routes.get('/cards', Card.getAll);
+routes.post('/cards/lists', Card.getFromLists);
 routes.post('/cards', Card.add);
 routes.put('/cards/:id', Card.update);
 routes.delete('/cards/:id', Card.del);
+
 
 routes.get('/lists', List.getAll);
 routes.get('/lists/:id', List.getFromBoard);

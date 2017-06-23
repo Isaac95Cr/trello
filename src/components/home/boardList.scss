@@ -1,14 +1,15 @@
 .boards__list{
         margin: 0px 1.875rem;
-        background: white;
+        background: #f5f8ff;
         .boards__list__header{
+            word-wrap: break-word;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
     }
     .boards__list__content{
-        background: white;
+        background: #f5f8ff;
         
     }
 
@@ -21,9 +22,10 @@
     .board__add__item__title{
         color: white;
         text-align: center;
-
+        word-wrap: break-word;
     }
     .board__add__item__content{
+        word-wrap: break-word;
         .input-group{
             input{
                 font-size: 30px;

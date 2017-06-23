@@ -38,11 +38,21 @@ const del = (req,res)=>{
     ).catch(err => sendErrorResponse(res, err, '500'));   
 };
 
+const getFromLists = (req, res) => {
+    const { params, body } = req;
+    const array = body.ids;
+    Card.find({'listId': {$in:array}}).exec()
+        .then(data => sendJsonResponse(res, data, '200'))
+        .catch(err => sendErrorResponse(res, err, '500'))
+};
+
+
 const Cards = {
     getAll,
     add,
     update,
-    del
+    del,
+    getFromLists
 };
 
 module.exports = Cards;

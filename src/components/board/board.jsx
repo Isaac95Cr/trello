@@ -5,9 +5,10 @@ import List from './list.jsx';
 import addSvg from './img/add-Icon.svg';
 
 
-const renderItems = (items) => {
+const renderItems = (items, cards) => {
     return items.map((item, index) => {
-        return <List key={index} id={item._id} title={item.name} />
+        const listcards = cards.filter(x => x.listId == item._id);
+        return <List key={index} id={item._id} title={item.name} cards={listcards}/>
     })
 }
 
@@ -30,13 +31,13 @@ const Board = (props) => (
 
             <div className="col-md-12">
                 <div className="board__content">
-                    {renderItems(props.list)}
+                    {renderItems(props.list, props.cards)}
                     <div className="list__add">
                         <div className="list__add__title">
                             <h2></h2>
                             <div className="list__add__content">
                                 <div className="input-group">
-                                    <input type="text" name="listName" className="form-control" placeholder="Add new List" value={props.listName} onChange={props.onChange}/>
+                                    <input type="text" name="listName" className="form-control" placeholder="Add new List" value={props.listName} onChange={props.onChange} />
                                     <span className="input-group-btn">
                                         <button className="btn btn-default form-control icon-color" type="button" onClick={props.onAdd} >
                                             <img src={addSvg} alt="" className="" />

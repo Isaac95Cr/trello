@@ -8,9 +8,11 @@ import addSvg from './img/add-Icon.svg';
 import importantSvg from './img/important-Icon.svg';
 import bellSvg from './img/bell-Icon.svg';
 import searchSvg from './img/searchIcon.svg';
+import { logout } from '../../actions/userActions.js';
+import { connect } from 'react-redux';
 
 const Header = (props) => {
-    const { user , onAdd} = props;
+    const { user, onAdd, title, dispatch} = props;
     return (
         <header>
             <div className="row">
@@ -29,8 +31,8 @@ const Header = (props) => {
                         <ul className="nav navbar-nav navbar-left">
                             <li>
                                 <a>
-                                    <img src={boardSvg} alt="" className="" />Boards
-                    </a>
+                                    <img src={boardSvg} alt="" className="" /><b>{title}</b>
+                                </a>
                             </li>
                         </ul>
                         <form className="navbar-form navbar-left">
@@ -63,7 +65,10 @@ const Header = (props) => {
                                     <li><a href="#">Another action</a></li>
                                     <li><a href="#">Something else here</a></li>
                                     <li role="separator" className="divider"></li>
-                                    <li><a href="#">Logout</a></li>
+                                    <li><a href="" onClick={e =>
+                                        dispatch(logout())
+                                    }>
+                                        Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -75,4 +80,4 @@ const Header = (props) => {
     )
 }
 
-export default Header;
+export default connect()(Header);
